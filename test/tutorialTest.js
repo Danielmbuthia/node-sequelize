@@ -11,6 +11,7 @@ describe('Tutorial controller tests',function () {
          .get('/api/tutorials')
          .end((err, res)=> {
              expect(res.body).to.be.a('array');
+             expect(res.body[0].user).to.be.a('object');
              expect(res.body[0]).to.have.property('title');
              expect(res.body[0]).to.have.property('description');
              expect(res.body[0]).to.have.property('published');
@@ -23,7 +24,8 @@ describe('Tutorial controller tests',function () {
         .send({
             'title':'Test',
             'published':true,
-            'description':' Test '
+            'description':' Test',
+            'user_id':1
         })
         .end((err,res)=>{
             expect(res.body).to.be.a('object');
@@ -53,6 +55,7 @@ describe('Tutorial controller tests',function () {
             .get('/api/tutorials/'+data.id)
             .end((err,res)=>{
                 expect(res.body).to.be.a('object');
+                expect(res.body.user).to.be.a('object');
                 expect(res.body).to.have.property('title');
                 expect(res.body).to.have.property('description');
                 expect(res.body).to.have.property('published');

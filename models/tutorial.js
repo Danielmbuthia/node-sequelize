@@ -10,6 +10,8 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.BOOLEAN
         }
     });
-
+    Tutorial.associate = function(models) {
+        Tutorial.belongsTo(models.user,{foreignKey:'user_id'});
+    };
     return Tutorial;
 };

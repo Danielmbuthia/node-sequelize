@@ -1,4 +1,3 @@
-const server = require('express');
 module.exports = app => {
     const tutorials = require("../controllers/tutorial.js");
     app.route("/api/tutorials")

@@ -40,7 +40,7 @@ exports.findAll = (req, res) => {
 
     Tutorial.findAll({ where: condition,
         include:[{
-            model:User
+            model:User,attributes:["email"]
         }]
     },)
         .then(data => {

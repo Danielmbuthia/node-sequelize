@@ -1,10 +1,10 @@
- process.env.ENV = "test";
+
+process.env.ENV = "test";
 let chai = require('chai');
 let expect = chai.expect;
 let chaiHttp =require('chai-http');
 chai.use(chaiHttp);
 let server = 'http://localhost:3000';
-
 describe('Tutorial controller tests',function () {
  it('should get json data on findAll', (done) => {
      chai.request(server)
@@ -44,6 +44,7 @@ describe('Tutorial controller tests',function () {
             })
             .end((err,res)=>{
                 expect(res.body).to.be.a('object');
+                expect(res).to.have.status(400);
                 done();
             });
     });

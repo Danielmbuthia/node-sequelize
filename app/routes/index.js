@@ -1,6 +1,7 @@
 module.exports = app => {
-    const tutorials = require("../controllers/tutorial");
-    const user = require("../controllers/user");
+    const tutorials = require("../controllers/tutorialController");
+    const user = require("../controllers/userController");
+    const upload = require("../controllers/uploadFilesController");
     ///tutorials routes
     app.route("/api/tutorials")
         .post(tutorials.create)
@@ -20,5 +21,8 @@ module.exports = app => {
         .get(user.findOne)
         .put(user.update)
         .delete(user.delete);
+    /// fileupload
+    app.route('/api/upload')
+        .post(upload.uploadSingle)
 
 };

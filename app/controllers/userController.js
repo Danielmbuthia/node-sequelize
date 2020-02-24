@@ -1,5 +1,5 @@
 const db = require("../../models");
-const User = db.user;
+const UserController = db.user;
 const Tutorial = db.tutorial;
 const Op = db.Sequelize.Op;
 
@@ -17,7 +17,7 @@ exports.create = (req,res)=>{
         email:req.body.email,
         password:req.body.password
     };
-    User.create(user_data)
+    UserController.create(user_data)
       .then(data=>{
           res.send(data)
       })
@@ -30,7 +30,7 @@ exports.create = (req,res)=>{
 };
 
 exports.findAll = (req,res)=>{
-    User.findAll(
+    UserController.findAll(
         {
             include: [
                 { model: Tutorial }
@@ -48,7 +48,7 @@ exports.findAll = (req,res)=>{
 };
 exports.findOne = (req,res)=>{
    const id = req.params.id;
-   User.findByPk(id,{
+   UserController.findByPk(id,{
        include: [
            { model: Tutorial }
        ]

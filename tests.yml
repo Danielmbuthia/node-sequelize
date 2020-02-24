@@ -1,0 +1,17 @@
+config:
+  target: 'http://127.0.0.1:3000'
+  plugins": {
+    "statsd": {}
+  }
+  http:
+    pool: 10
+  phases:
+    - duration: 60
+      arrivalRate: 100
+  defaults:
+    headers:
+      x-my-service-auth: '987401838271002188298567'
+scenarios:
+  - flow:
+      - get:
+          url: "/api/users"

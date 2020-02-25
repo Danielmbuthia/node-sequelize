@@ -8,7 +8,7 @@ const {
     checkUniqueIndex,
     checkPropertyExists
 } = require('sequelize-test-helpers');
-const TutorialModel = require('../models/tutorial');
+const TutorialModel = require('../../models/tutorial');
 describe('Test Tutorial Model association',function () {
     const Tutorial = TutorialModel(sequelize, dataTypes);
     const tutorial = new Tutorial();

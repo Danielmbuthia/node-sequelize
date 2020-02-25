@@ -8,7 +8,7 @@ const {
     checkUniqueIndex,
     checkPropertyExists
 } = require('sequelize-test-helpers');
-const UserModel = require('../models/user');
+const UserModel = require('../../models/user');
 describe('Test user Model association',function () {
             const User = UserModel(sequelize, dataTypes);
             const user = new User();
